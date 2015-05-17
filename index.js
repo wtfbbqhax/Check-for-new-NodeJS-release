@@ -15,20 +15,8 @@ http.request({ host: 'nodejs.org', path: '/' }, function(resp) {
     });
 
     resp.on('end', function() {  
-        //jsdom.env({ html: body, scripts: [ "https://code.jquery.com/jquery-1.11.3.min.js" ] },
         var parse = jsdom.jsdom;
         var doc = parse(body);
-
         console.log(doc.querySelector('.version').innerHTML);
-//        console.log(doc.documentElement.outerHTML);
-//        var p = doc.getElementById("version");
-//
-//        console.log(p);
-        /*
-                function(err, window) {
-                    var $ = window.jQuery;
-                    console.log($('body').html());
-                });
-                */
     });
 }).end();
